@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +32,13 @@ public class ProductController {
 	public void add(@Valid @RequestBody Product product) {
 		System.out.println("Inside add() of Controller");
 		repository.save(product);
+	}
+
+	@PutMapping(path = "update/{id}")
+	public Product updateStock(@PathVariable int productId, @RequestBody Product product) {
+		System.out.println("Inside updateStock() of Controller");
+		Product prod = repository.save(product);
+		return prod;
 	}
 
 	@DeleteMapping(path = "/delete/{id}")
