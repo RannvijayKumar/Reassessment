@@ -34,7 +34,7 @@ public class ProductController {
 		repository.save(product);
 	}
 
-	@PutMapping(path = "update/{id}")
+	@PutMapping(path = "update/{productId}")
 	public Product updateStock(@PathVariable int productId, @RequestBody Product product) {
 		System.out.println("Inside updateStock() of Controller");
 		Product prod = repository.save(product);
